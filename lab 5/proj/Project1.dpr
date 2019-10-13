@@ -3,7 +3,7 @@ program Project1;
 {$APPTYPE CONSOLE}
 
 uses
-  System.SysUtils;
+  SysUtils;
 
 type
   arr1 = array [1 .. 7, 1 .. 7] of integer;
