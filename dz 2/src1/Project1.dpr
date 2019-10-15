@@ -6,7 +6,7 @@ uses
   System.SysUtils;
 
 type
-  arr = array [1 .. 50] of real;
+  arr = array [0 .. 50] of real;
 
 var
   a: arr;
@@ -32,8 +32,9 @@ begin
     for i := 1 to n do
     begin
       target := a[i];
+      a[0] := target;
       g := i - 1;
-      while ((g >= 1) and ((abs(target)) < (abs(a[g])))) do
+      while ((abs(target)) < (abs(a[g]))) do
       begin
         a[g + 1] := a[g];
         g := g - 1;
