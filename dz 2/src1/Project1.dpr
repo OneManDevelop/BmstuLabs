@@ -4,7 +4,7 @@ program Project1;
 
 uses
   System.SysUtils,
-  LabLib1 in 'LabLib1.pas';
+  LabLib1 in '..\src4\LabLib1.pas';
 
 type
   arr = array [0 .. 50] of real;
