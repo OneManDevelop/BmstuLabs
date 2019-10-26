@@ -3,7 +3,7 @@ program Project1;
 {$APPTYPE CONSOLE}
 
 uses
-  System.SysUtils;
+  SysUtils;
 
 type
   st1 = string[50];

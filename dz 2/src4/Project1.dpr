@@ -3,7 +3,7 @@ program Project1;
 {$APPTYPE CONSOLE}
 
 uses
-  System.SysUtils,
+  SysUtils,
   LabLib1;
 
 function fx1(x: real): real;

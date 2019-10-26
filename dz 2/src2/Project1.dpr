@@ -3,7 +3,7 @@ program Project1;
 {$APPTYPE CONSOLE}
 
 uses
-  System.SysUtils;
+  SysUtils;
 
 type
   arr = array [1 .. 11, 1 .. 11] of real;
@@ -55,8 +55,6 @@ begin
         end;
       end;
 
-  end;
-
   for g := 1 to n do
   begin
     dub := a[imax, g];
@@ -76,6 +74,7 @@ begin
   writeln;
   writeln('max(imax), min(imin): ', max:6:2, '(', imax, ') ', min:6:2, '(',
     imin, ')');
+  end;
   readln;
 
 end.

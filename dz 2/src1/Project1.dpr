@@ -3,8 +3,7 @@ program Project1;
 {$APPTYPE CONSOLE}
 
 uses
-  System.SysUtils,
-  LabLib1 in '..\src4\LabLib1.pas';
+  SysUtils;
 
 type
   arr = array [0 .. 50] of real;
