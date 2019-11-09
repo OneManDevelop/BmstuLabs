@@ -16,36 +16,33 @@ type
 var
   p1, p2, pst, pfn: UchPointer;
   uch1: uchastnik;
-  a: string;
+  a, dTarget: string;
+  found: boolean;
 
 procedure SortList(pf: UchPointer);
 var
   ptarget, buffer: UchPointer;
   sorted, swapped: boolean;
+  bufferF: string;
 begin
   { ptarget:=pf; }
   sorted := false;
   while not sorted do
   begin
-  writeln('big loop');
     sorted := true;
-    ptarget^.nxt := pf;
+    ptarget := pf;
     while (ptarget^.nxt <> nil) do
     begin
-      writeln('small loop');
       swapped := false;
-      if (ptarget^.nxt^.fam > ptarget^.nxt^.nxt^.fam) then
+      if (ptarget^.fam > ptarget^.nxt^.fam) then
       begin
-      writeln('swap');
         sorted := false;
-        buffer := ptarget^.nxt;
-        ptarget^.nxt := ptarget^.nxt^.nxt;
-        ptarget^.nxt^.nxt := buffer;
+        bufferF := ptarget^.fam;
+        ptarget^.fam := ptarget^.nxt^.fam;
+        ptarget^.nxt^.fam := bufferF;
         swapped := true;
       end;
-      if not swapped then
-        ptarget := ptarget^.nxt;
-      { depends from swapping maybe }
+      ptarget := ptarget^.nxt;
     end;
 
   end;
@@ -53,7 +50,7 @@ begin
 end;
 
 begin
-  writeln('Enter surnames');
+  writeln('> Enter surnames');
   readln(a);
   new(pst);
   pst^.fam := a;
@@ -71,8 +68,31 @@ begin
   p2^.nxt := nil;
   pfn := p1;
 
-  {SortList(pst); }
+  SortList(pst);
+  writeln('> Enter surname to delete');
+  readln(dTarget);
 
+  found := false;
+  if (pst^.fam = dTarget) then
+    pst := pst^.nxt
+  else
+  begin
+    p1 := pst;
+    while p1^.nxt <> nil do
+    begin
+      if p1^.nxt^.fam = dTarget then
+      begin
+        found := true;
+        p1^.nxt := p1^.nxt^.nxt;
+      end;
+      p1 := p1^.nxt;
+    end;
+  end;
+
+  if not found then
+    writeln('>> Surname not found');
+
+  writeln('> List:');
   p1 := pst;
   while (p1^.nxt <> nil) do
   begin
