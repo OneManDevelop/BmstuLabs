@@ -27,13 +27,16 @@ begin
   sorted := false;
   while not sorted do
   begin
+  writeln('big loop');
     sorted := true;
-    ptarget := pf;
+    ptarget^.nxt := pf;
     while (ptarget^.nxt <> nil) do
     begin
+      writeln('small loop');
       swapped := false;
-      if (ptarget^.fam > ptarget^.nxt^.fam) then
+      if (ptarget^.nxt^.fam > ptarget^.nxt^.nxt^.fam) then
       begin
+      writeln('swap');
         sorted := false;
         buffer := ptarget^.nxt;
         ptarget^.nxt := ptarget^.nxt^.nxt;
@@ -68,7 +71,7 @@ begin
   p2^.nxt := nil;
   pfn := p1;
 
-  SortList(pst);
+  {SortList(pst); }
 
   p1 := pst;
   while (p1^.nxt <> nil) do
