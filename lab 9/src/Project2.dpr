@@ -33,20 +33,35 @@ begin
     ptarget := pf;
     while (ptarget^.nxt <> nil) do
     begin
-      swapped := false;
+      { swapped := false; }
       if (ptarget^.fam > ptarget^.nxt^.fam) then
       begin
         sorted := false;
         bufferF := ptarget^.fam;
         ptarget^.fam := ptarget^.nxt^.fam;
         ptarget^.nxt^.fam := bufferF;
-        swapped := true;
+        { swapped := true; }
       end;
       ptarget := ptarget^.nxt;
     end;
 
   end;
 
+end;
+
+procedure Disposer(pf: UchPointer);
+var
+  p1, p2: UchPointer;
+begin
+  p1 := pf;
+  while (p1.nxt <> nil) do
+  begin
+    p2 := p1^.nxt;
+    p1^.nxt := nil;
+    dispose(p1);
+    p1 := p2;
+  end;
+  dispose(p1);
 end;
 
 begin
@@ -66,7 +81,7 @@ begin
   end;
   p1^.nxt := nil;
   p2^.nxt := nil;
-  pfn := p1;
+  { pfn := p1; }
 
   SortList(pst);
   writeln('> Enter surname to delete');
@@ -100,6 +115,8 @@ begin
     p1 := p1^.nxt;
   end;
   writeln(p1^.fam);
+
+  Disposer(pst);
 
   readln;
 
