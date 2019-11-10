@@ -37,6 +37,8 @@ var
 
 implementation
 
+{$R *.dfm}
+
 procedure operate;
 
 var
