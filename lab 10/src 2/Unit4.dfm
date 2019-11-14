@@ -1,7 +1,7 @@
-object Form2: TForm2
+object Form4: TForm4
   Left = 0
   Top = 0
-  Caption = 'Enter/add record'
+  Caption = 'Search records'
   ClientHeight = 300
   ClientWidth = 390
   Color = clBtnFace
@@ -47,6 +47,7 @@ object Form2: TForm2
     Width = 121
     Height = 21
     TabOrder = 0
+    OnChange = Edit1Change
   end
   object Edit2: TEdit
     Left = 210
@@ -74,7 +75,7 @@ object Form2: TForm2
     Top = 256
     Width = 75
     Height = 25
-    Caption = 'Write'
+    Caption = 'Search'
     TabOrder = 4
     OnClick = Button1Click
   end
