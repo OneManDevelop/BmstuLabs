@@ -40,6 +40,7 @@ var
   Form4: TForm4;
   f: file of zap;
   z: zap;
+  size: integer;
 
 implementation
 
@@ -50,8 +51,18 @@ var
   c: integer;
   fam: string[22];
 begin
+  AssignFile(f, 'telefon.dat');
+{$I-} Reset(f); {$I+}
+  if ioresult = 0 then
+  begin
+    size := FileSize(f);
+    seek(f, size);
+  end
+  else
+    rewrite(f);
   c := 1;
   fam := Edit1.text;
+  Reset(f);
   while not eof(f) do
   begin
     read(f, z);
@@ -68,18 +79,27 @@ begin
   begin
     Edit3.text := 'Нет данных';
   end;
-  reset(f);
+  Reset(f);
 end;
 
 procedure TForm4.Button2Click(Sender: TObject);
 begin
+  AssignFile(f, 'telefon.dat');
+{$I-} Reset(f); {$I+}
+  if ioresult = 0 then
+  begin
+    size := FileSize(f);
+    seek(f, size);
+  end
+  else
+    rewrite(f);
   closefile(f);
   self.hide;
 end;
 
 procedure TForm4.Edit1Change(Sender: TObject);
 begin
-  Edit1.clear;
+  { Edit1.clear; }
   Edit2.clear;
   Edit3.clear;
   Edit4.clear;

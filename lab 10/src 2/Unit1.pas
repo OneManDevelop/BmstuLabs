@@ -8,12 +8,6 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Unit2, Unit4;
 
 type
-  zap = record
-    fam: string[22]; { Фамилия }
-    name: string[22]; { Имя }
-    fon: string[22]; { Телефон }
-    adr: string[22]; { Адрес }
-  end;
 
   TForm1 = class(TForm)
     Button1: TButton;
@@ -32,26 +26,13 @@ type
 
 var
   Form1: TForm1;
-  f: file of zap;
-  z: zap;
 
 implementation
 
 {$R *.dfm}
 
 procedure TForm1.Button1Click(Sender: TObject);
-var
-  size: integer;
 begin
-  AssignFile(f, 'telefon.dat');
-{$I-} Reset(f); {$I+}
-  if ioresult = 0 then
-  begin
-    size := FileSize(f);
-    seek(f, size);
-  end
-  else
-    rewrite(f);
   Form2.Show;
   Form2.edit1.setfocus;
 end;
@@ -67,7 +48,6 @@ end;
 procedure TForm1.Button3Click(Sender: TObject);
 begin
   Close;
-
 end;
 
 end.

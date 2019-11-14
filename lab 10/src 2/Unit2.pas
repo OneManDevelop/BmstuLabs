@@ -40,6 +40,7 @@ var
   Form2: TForm2;
   f: file of zap;
   z: zap;
+  size: integer;
 
 implementation
 
@@ -55,6 +56,15 @@ begin
   Edit2.clear;
   Edit3.clear;
   Edit4.clear;
+  AssignFile(f, 'telefon.dat');
+{$I-} Reset(f); {$I+}
+  if ioresult = 0 then
+  begin
+    size := FileSize(f);
+    seek(f, size);
+  end
+  else
+    rewrite(f);
   write(f, z);
   Edit1.setfocus;
 
@@ -62,6 +72,15 @@ end;
 
 procedure TForm2.Button2Click(Sender: TObject);
 begin
+  AssignFile(f, 'telefon.dat');
+{$I-} Reset(f); {$I+}
+  if ioresult = 0 then
+  begin
+    size := FileSize(f);
+    seek(f, size);
+  end
+  else
+    rewrite(f);
   closefile(f);
   self.hide;
 end;
