@@ -22,6 +22,7 @@ type
     Label1: TLabel;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
 
   private
     { Private declarations }
@@ -59,8 +60,14 @@ procedure TForm1.Button2Click(Sender: TObject);
 begin
   AssignFile(f, 'telefon.dat');
   Reset(f);
-  form3.Show;
-  form3.edit1.setfocus;
+  form4.Show;
+  form4.edit1.setfocus;
+end;
+
+procedure TForm1.Button3Click(Sender: TObject);
+begin
+  Close;
+
 end;
 
 end.

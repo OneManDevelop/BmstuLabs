@@ -51,5 +51,6 @@ object Form1: TForm1
     Height = 25
     Caption = 'Exit'
     TabOrder = 2
+    OnClick = Button3Click
   end
 end
