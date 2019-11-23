@@ -8,6 +8,14 @@ uses
 
 type
   TForm1 = class(TForm)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+type
+  TForm1 = class(TForm)
     Edit1: TEdit;
     Button1: TButton;
     Button2: TButton;
@@ -23,6 +31,8 @@ type
     procedure Button3Click(Sender: TObject);
     procedure Button6Click(Sender: TObject);
     procedure Button7Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure Edit1Change(Sender: TObject);
   private
     { Private declarations }
   public
@@ -145,5 +155,3 @@ procedure TForm1.Button7Click(Sender: TObject);
 begin
   Close;
 end;
-
-end.
