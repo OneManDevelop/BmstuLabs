@@ -9,9 +9,11 @@ get vagon param by id
 
 type
   TVagon = object
+  private
     gruzpd: integer;
     massa: integer;
     typeG: string;
+  public
     procedure Init(maxGM, gm: integer; typeOfG: string);
     procedure Info;
     function percentG: real;
@@ -53,8 +55,11 @@ type
 
 type
   TPoezd = object
-    n: byte;
+  private
     vagons: array[1..30] of TVagon;
+    n: byte;
+  public
+    procedure resetP;
     procedure addVagon(maxGM, gm: integer; typeOfG: string);
     procedure removeVagon;
     procedure Info;
@@ -63,6 +68,11 @@ type
 
     {code that obj}
     {programs to add, delete,info, gruzopod, kolvo more than half full}
+  end;
+
+  procedure TPoezd.resetP;
+  begin
+    Self.n := 0;
   end;
 
   procedure TPoezd.addVagon(maxGM, gm: integer; typeOfG: string);
@@ -118,7 +128,7 @@ var
   par1, par2: integer;
   par3: string;
 begin
-  thomas.n := 0;
+  thomas.resetP();
   writeln('Chose option: 0-Exit 1-Add 2-Remove 3-info 4-SumGruzopod 5-HalfFullVagons');
   readln(optionId);
   while optionId <> 0 do

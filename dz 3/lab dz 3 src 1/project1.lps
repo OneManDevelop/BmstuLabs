@@ -4,16 +4,24 @@
     <PathDelim Value="\"/>
     <Version Value="11"/>
     <BuildModes Active="Default"/>
-    <Units Count="1">
+    <Units Count="2">
       <Unit0>
         <Filename Value="project1.lpr"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
-        <TopLine Value="5"/>
-        <CursorPos X="38" Y="13"/>
-        <UsageCount Value="21"/>
+        <TopLine Value="19"/>
+        <CursorPos X="67" Y="53"/>
+        <UsageCount Value="22"/>
         <Loaded Value="True"/>
       </Unit0>
+      <Unit1>
+        <Filename Value="..\lab dz 3 src 3\project1.lpr"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="127"/>
+        <CursorPos X="53" Y="161"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+      </Unit1>
     </Units>
     <JumpHistory Count="7" HistoryIndex="6">
       <Position1>

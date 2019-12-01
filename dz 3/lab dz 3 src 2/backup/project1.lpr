@@ -52,7 +52,7 @@ type
   begin
     beaten := False;
     diff := fi - Self.x;
-    writeln(x: 3, y: 3, fi: 3, fg: 3, diff: 3);
+    {writeln(x: 3, y: 3, fi: 3, fg: 3, diff: 3);}
     if ((fg = Self.y + diff) or (fg = Self.y - diff)) then
       beaten := True;
     Result := beaten;

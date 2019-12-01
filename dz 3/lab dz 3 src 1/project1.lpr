@@ -2,8 +2,10 @@ program project1;
 
 type
   TWord = object
+  private
     content: string;
     lg: byte;
+  public
     procedure Init(sData: string);
     function CountGlas: byte;
     procedure Info;

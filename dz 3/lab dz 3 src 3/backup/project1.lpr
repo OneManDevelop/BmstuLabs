@@ -9,9 +9,11 @@ get vagon param by id
 
 type
   TVagon = object
+  private
     gruzpd: integer;
     massa: integer;
     typeG: string;
+  public
     procedure Init(maxGM, gm: integer; typeOfG: string);
     procedure Info;
     function percentG: real;
@@ -29,7 +31,7 @@ type
   begin
     writeln('gruzopod: ', Self.gruzpd: 6, ' weight on board: ',
       Self.massa: 6, ' type of gruz: ',
-      Self.typeG, ' % zaniatosti: ', Self.percentG: 6: 2);
+      Self.typeG: 10, ' % zaniatosti: ', Self.percentG: 6: 2);
   end;
 
   function TVagon.percentG: real;
@@ -53,8 +55,10 @@ type
 
 type
   TPoezd = object
-    n: byte;
+  private
     vagons: array[1..30] of TVagon;
+    n: byte = 0;
+  public
     procedure addVagon(maxGM, gm: integer; typeOfG: string);
     procedure removeVagon;
     procedure Info;

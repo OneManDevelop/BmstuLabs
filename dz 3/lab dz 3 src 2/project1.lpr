@@ -2,8 +2,10 @@ program project1;
 
 type
   TFigure = object
+  private
     fColor: boolean;
     x, y: byte;
+  public
     procedure Init(clr: string; i, j: byte);
     function ColorEq: boolean;
     procedure Info;
